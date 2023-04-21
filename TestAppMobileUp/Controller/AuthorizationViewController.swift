@@ -6,12 +6,57 @@
 //
 
 import UIKit
+import WebKit
 
-final class AuthorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        [nameLabel, authoButton].forEach { view.addSubview($0)}
+        setConstraints()
+    }
+
+    //MARK: - Properties
+    var webView: WKWebView!
+
+    //MARK: - Clousers
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Mobile Up\nGallery"
+        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 45, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private lazy var authoButton: UIButton = {
+        let button = UIButton()
+        button.configuration = .filled()
+        button.setTitle("Вход через VK", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = .black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(tapToAuthorization), for: .touchUpInside)
+        return button
+    }()
+
+
+    //MARK: - Methods
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 82),
+            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            nameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -124),
+
+            authoButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            authoButton.heightAnchor.constraint(equalToConstant: 50),
+            authoButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            authoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+        ])
+    }
+
+    @objc private func tapToAuthorization() {
+        nameLabel.text = "Hello"
     }
 }
-
