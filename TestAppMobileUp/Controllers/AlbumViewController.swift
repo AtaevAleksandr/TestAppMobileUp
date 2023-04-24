@@ -10,6 +10,8 @@ import vk_ios_sdk
 
 class AlbumViewController: UIViewController {
 
+    private let networkService = NetworkService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -18,6 +20,7 @@ class AlbumViewController: UIViewController {
         photosCollectionView.dataSource = self
         view.addSubview(photosCollectionView)
         setConstraints()
+        networkService.getPhotos()
     }
 
     override func viewWillAppear(_ animated: Bool) {
