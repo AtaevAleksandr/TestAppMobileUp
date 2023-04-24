@@ -14,6 +14,10 @@
 		5B386D0729F2AB00005AAA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */; };
 		5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E60A29F6E03D00564763 /* AuthServices.swift */; };
 		5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5BD969BF29F6E582000287DE /* vk-ios-sdk */; };
+		5BD969C329F6FC4B000287DE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C229F6FC4B000287DE /* AlbumViewController.swift */; };
+		5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */; };
+		5BD969C729F71B4E000287DE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C629F71B4E000287DE /* NetworkService.swift */; };
+		5BD969C929F71C2B000287DE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C829F71C2B000287DE /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		5B386D0629F2AB00005AAA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B386D0829F2AB00005AAA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B62E60A29F6E03D00564763 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		5BD969C229F6FC4B000287DE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		5BD969C629F71B4E000287DE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5BD969C829F71C2B000287DE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +68,11 @@
 			children = (
 				5B62E60929F6E02100564763 /* Services */,
 				5B386D0E29F2ABDA005AAA6C /* App */,
-				5B386D0F29F2ABF0005AAA6C /* Controller */,
+				5B386D0F29F2ABF0005AAA6C /* Controllers */,
 				5B386D0329F2AB00005AAA6C /* Assets.xcassets */,
 				5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */,
 				5B386D0829F2AB00005AAA6C /* Info.plist */,
+				5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */,
 			);
 			path = TestAppMobileUp;
 			sourceTree = "<group>";
@@ -77,18 +86,21 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		5B386D0F29F2ABF0005AAA6C /* Controller */ = {
+		5B386D0F29F2ABF0005AAA6C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5BD969C229F6FC4B000287DE /* AlbumViewController.swift */,
 				5B386CFE29F2AAFF005AAA6C /* AuthorizationViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		5B62E60929F6E02100564763 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				5B62E60A29F6E03D00564763 /* AuthServices.swift */,
+				5BD969C629F71B4E000287DE /* NetworkService.swift */,
+				5BD969C829F71C2B000287DE /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,9 +182,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */,
+				5BD969C329F6FC4B000287DE /* AlbumViewController.swift in Sources */,
 				5B386CFB29F2AAFF005AAA6C /* AppDelegate.swift in Sources */,
 				5B386CFD29F2AAFF005AAA6C /* SceneDelegate.swift in Sources */,
 				5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */,
+				5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */,
+				5BD969C929F71C2B000287DE /* API.swift in Sources */,
+				5BD969C729F71B4E000287DE /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

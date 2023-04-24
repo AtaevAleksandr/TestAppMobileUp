@@ -20,9 +20,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegat
     private let appId = "51625050"
     private let vkSdk: VKSdk
 
-    // kursantataev@mail.ru
-    // onlySan4ez
-
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
         super.init()
@@ -35,17 +32,16 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegat
 
     func wakeUpSession() {
         let scope = ["offline"]
-        VKSdk.wakeUpSession(scope) { (state, error) in
+        VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             switch state {
             case .initialized:
-                print("initialized")
                 VKSdk.authorize(scope)
             case .webview:
                 print("webview")
             case .authorized:
-                print("authorized")
+                delegate?.authServiceSighIn()
             default:
-                fatalError(error!.localizedDescription)
+                delegate?.authServiceSighInDidFail()
             }
         }
     }

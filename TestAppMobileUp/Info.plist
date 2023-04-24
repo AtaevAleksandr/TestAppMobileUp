@@ -7,18 +7,18 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>vk 51624044</string>
+				<string>vk51625050</string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string></string>
 		</dict>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>vk</string>
-        <string>vk-share</string>
-        <string>vkauthorize</string>
-    </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>vk</string>
+		<string>vk-share</string>
+		<string>vkauthorize</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

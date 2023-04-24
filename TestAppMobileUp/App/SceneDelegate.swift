@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
         window?.windowScene = windowScene
         authService = AuthService()
         authService.delegate = self
-        window?.rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
+        window?.rootViewController = AuthorizationViewController()
         window?.makeKeyAndVisible()
     }
 
@@ -69,7 +69,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     }
 
     func authServiceSighIn() {
-        print(#function)
+        let albumVC = AlbumViewController()
+        let navVC = UINavigationController(rootViewController: albumVC)
+        window?.rootViewController = navVC
     }
 
     func authServiceSighInDidFail() {
