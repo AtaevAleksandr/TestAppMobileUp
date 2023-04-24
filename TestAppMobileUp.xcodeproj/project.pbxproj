@@ -12,38 +12,8 @@
 		5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B386CFE29F2AAFF005AAA6C /* AuthorizationViewController.swift */; };
 		5B386D0429F2AB00005AAA6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0329F2AB00005AAA6C /* Assets.xcassets */; };
 		5B386D0729F2AB00005AAA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */; };
+		5B9E8B9A29F6DDD1003A8287 /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5BD822D429F6D295004CCFB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3C7542D182133CC00964716;
-			remoteInfo = VKSdk;
-		};
-		5BD822D629F6D295004CCFB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3BACC401865905B003158DA;
-			remoteInfo = VKSdkResources;
-		};
-		5BD822D829F6D295004CCFB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F34670311B8B7C5A003EF74B;
-			remoteInfo = VKSdkFramework;
-		};
-		5BD822DA29F6D295004CCFB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F3C58CCD1D213B2C005E94B5;
-			remoteInfo = VKSdkTests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5B386CF729F2AAFF005AAA6C /* TestAppMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +23,6 @@
 		5B386D0329F2AB00005AAA6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B386D0629F2AB00005AAA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B386D0829F2AB00005AAA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "VK-ios-sdk.xcodeproj"; path = "../../../Downloads/vk-ios-sdk-master/VK-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9E8B9A29F6DDD1003A8287 /* vk-ios-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +42,6 @@
 			children = (
 				5B386CF929F2AAFF005AAA6C /* TestAppMobileUp */,
 				5B386CF829F2AAFF005AAA6C /* Products */,
-				5BD822CB29F6D295004CCFB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,25 +82,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		5BD822CB29F6D295004CCFB8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5BD822CD29F6D295004CCFB8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5BD822D529F6D295004CCFB8 /* libVKSdk.a */,
-				5BD822D729F6D295004CCFB8 /* VKSdkResources.bundle */,
-				5BD822D929F6D295004CCFB8 /* VKSdkFramework.framework */,
-				5BD822DB29F6D295004CCFB8 /* VKSdkTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +99,7 @@
 			);
 			name = TestAppMobileUp;
 			packageProductDependencies = (
+				5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */,
 			);
 			productName = TestAppMobileUp;
 			productReference = 5B386CF729F2AAFF005AAA6C /* TestAppMobileUp.app */;
@@ -179,52 +130,16 @@
 			);
 			mainGroup = 5B386CEE29F2AAFF005AAA6C;
 			packageReferences = (
+				5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */,
 			);
 			productRefGroup = 5B386CF829F2AAFF005AAA6C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 5BD822CD29F6D295004CCFB8 /* Products */;
-					ProjectRef = 5BD822CC29F6D295004CCFB8 /* VK-ios-sdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				5B386CF629F2AAFF005AAA6C /* TestAppMobileUp */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5BD822D529F6D295004CCFB8 /* libVKSdk.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libVKSdk.a;
-			remoteRef = 5BD822D429F6D295004CCFB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5BD822D729F6D295004CCFB8 /* VKSdkResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = VKSdkResources.bundle;
-			remoteRef = 5BD822D629F6D295004CCFB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5BD822D929F6D295004CCFB8 /* VKSdkFramework.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VKSdkFramework.framework;
-			remoteRef = 5BD822D829F6D295004CCFB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5BD822DB29F6D295004CCFB8 /* VKSdkTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = VKSdkTests.xctest;
-			remoteRef = 5BD822DA29F6D295004CCFB8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5B386CF529F2AAFF005AAA6C /* Resources */ = {
@@ -461,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/qe0/vk-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */;
+			productName = "vk-ios-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B386CEF29F2AAFF005AAA6C /* Project object */;
 }
