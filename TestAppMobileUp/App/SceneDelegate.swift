@@ -8,15 +8,23 @@
 import UIKit
 import vk_ios_sdk
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     var window: UIWindow?
+    var authService: AuthService!
 
+    static func shared() -> SceneDelegate {
+        let scene = UIApplication.shared.connectedScenes.first
+        let sd: SceneDelegate = ((scene?.delegate as? SceneDelegate)!)
+        return sd
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        authService = AuthService()
+        authService.delegate = self
         window?.rootViewController = UINavigationController(rootViewController: AuthorizationViewController())
         window?.makeKeyAndVisible()
     }
@@ -53,6 +61,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+
+    //MARK: - AuthServiceDelegate
+    func authServiceShouldShow(viewController: UIViewController) {
+        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+    }
+
+    func authServiceSighIn() {
+        print(#function)
+    }
+
+    func authServiceSighInDidFail() {
+        print(#function)
     }
 
 

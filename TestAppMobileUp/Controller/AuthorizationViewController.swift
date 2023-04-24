@@ -6,19 +6,19 @@
 //
 
 import UIKit
-import WebKit
 
-final class AuthorizationViewController: UIViewController, WKNavigationDelegate {
+final class AuthorizationViewController: UIViewController {
+
+    //MARK: - Properties
+    private var authService: AuthService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authService = SceneDelegate.shared().authService
         view.backgroundColor = .white
         [nameLabel, authButton].forEach { view.addSubview($0) }
         setConstraints()
     }
-    
-    //MARK: - Properties
-    
     
     //MARK: - Clousers
     private let nameLabel: UILabel = {
@@ -57,6 +57,6 @@ final class AuthorizationViewController: UIViewController, WKNavigationDelegate 
     }
     
     @objc private func tapToAuthorization() {
-        
+        authService.wakeUpSession()
     }
 }
