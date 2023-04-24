@@ -12,7 +12,8 @@
 		5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B386CFE29F2AAFF005AAA6C /* AuthorizationViewController.swift */; };
 		5B386D0429F2AB00005AAA6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0329F2AB00005AAA6C /* Assets.xcassets */; };
 		5B386D0729F2AB00005AAA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */; };
-		5B9E8B9A29F6DDD1003A8287 /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */; };
+		5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E60A29F6E03D00564763 /* AuthServices.swift */; };
+		5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5BD969BF29F6E582000287DE /* vk-ios-sdk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5B386D0329F2AB00005AAA6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B386D0629F2AB00005AAA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B386D0829F2AB00005AAA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B62E60A29F6E03D00564763 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B9E8B9A29F6DDD1003A8287 /* vk-ios-sdk in Frameworks */,
+				5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +58,7 @@
 		5B386CF929F2AAFF005AAA6C /* TestAppMobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				5B62E60929F6E02100564763 /* Services */,
 				5B386D0E29F2ABDA005AAA6C /* App */,
 				5B386D0F29F2ABF0005AAA6C /* Controller */,
 				5B386D0329F2AB00005AAA6C /* Assets.xcassets */,
@@ -82,6 +85,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		5B62E60929F6E02100564763 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B62E60A29F6E03D00564763 /* AuthServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,7 +110,7 @@
 			);
 			name = TestAppMobileUp;
 			packageProductDependencies = (
-				5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */,
+				5BD969BF29F6E582000287DE /* vk-ios-sdk */,
 			);
 			productName = TestAppMobileUp;
 			productReference = 5B386CF729F2AAFF005AAA6C /* TestAppMobileUp.app */;
@@ -130,7 +141,7 @@
 			);
 			mainGroup = 5B386CEE29F2AAFF005AAA6C;
 			packageReferences = (
-				5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */,
+				5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */,
 			);
 			productRefGroup = 5B386CF829F2AAFF005AAA6C /* Products */;
 			projectDirPath = "";
@@ -161,6 +172,7 @@
 				5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */,
 				5B386CFB29F2AAFF005AAA6C /* AppDelegate.swift in Sources */,
 				5B386CFD29F2AAFF005AAA6C /* SceneDelegate.swift in Sources */,
+				5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,20 +390,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */ = {
+		5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/qe0/vk-ios-sdk.git";
+			repositoryURL = "https://github.com/abesmon/vk-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				branch = "spm-support";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5B9E8B9929F6DDD1003A8287 /* vk-ios-sdk */ = {
+		5BD969BF29F6E582000287DE /* vk-ios-sdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5B9E8B9829F6DDD1003A8287 /* XCRemoteSwiftPackageReference "vk-ios-sdk" */;
+			package = 5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */;
 			productName = "vk-ios-sdk";
 		};
 /* End XCSwiftPackageProductDependency section */

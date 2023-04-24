@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "vk-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/abesmon/vk-ios-sdk",
+      "state" : {
+        "branch" : "spm-support",
+        "revision" : "7455a035a3951ecdf72508d017283057f369c7b5"
+      }
+    }
+  ],
+  "version" : 2
+}
