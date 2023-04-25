@@ -26,8 +26,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
 
     //MARK: - Clousers
-    lazy var imageView: UIImageView = {
-        let image = UIImageView()
+    lazy var imageView: WebImageView = {
+        let image = WebImageView()
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 0.5
         image.image = UIImage(systemName: "circle.dashed")
@@ -46,6 +46,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
 
     func set(viewModel: PhotoCellViewModel) {
-        imageView.image = UIImage(systemName: "photo")
+        imageView.set(imageURL: viewModel.imageUrlString)
     }
 }

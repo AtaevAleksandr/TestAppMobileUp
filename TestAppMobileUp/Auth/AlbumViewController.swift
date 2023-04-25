@@ -16,16 +16,8 @@ class AlbumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
     }
-
-    let dateFormatter: DateFormatter = {
-        let dt = DateFormatter()
-        dt.locale = Locale(identifier: "ru_RU")
-        dt.dateFormat = "d MMMM YYYY"
-        return dt
-    }()
-
 
 }
 
