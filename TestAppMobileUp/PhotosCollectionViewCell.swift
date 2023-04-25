@@ -20,7 +20,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
 
     //MARK: - Clousers
-    private lazy var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .systemMint
         image.translatesAutoresizingMaskIntoConstraints = false

@@ -23,7 +23,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegat
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
         super.init()
-        print("VKSdk.initialize")
         vkSdk.register(self)
         vkSdk.uiDelegate = self
     }
@@ -35,7 +34,7 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegat
     }
 
     func wakeUpSession() {
-        let scope = ["offline"]
+        let scope = ["friends","photos", "video", "status", "wall", "offline", "groups", "stats","email"]
         VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             switch state {
             case .initialized:

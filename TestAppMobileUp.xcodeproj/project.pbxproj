@@ -13,11 +13,13 @@
 		5B386D0429F2AB00005AAA6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0329F2AB00005AAA6C /* Assets.xcassets */; };
 		5B386D0729F2AB00005AAA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */; };
 		5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E60A29F6E03D00564763 /* AuthServices.swift */; };
+		5BD070AA29F73007006C38CE /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */; };
 		5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5BD969BF29F6E582000287DE /* vk-ios-sdk */; };
 		5BD969C329F6FC4B000287DE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C229F6FC4B000287DE /* AlbumViewController.swift */; };
 		5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */; };
 		5BD969C729F71B4E000287DE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C629F71B4E000287DE /* NetworkService.swift */; };
 		5BD969C929F71C2B000287DE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C829F71C2B000287DE /* API.swift */; };
+		5BD969CC29F72BF9000287DE /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969CB29F72BF9000287DE /* PhotoResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +31,12 @@
 		5B386D0629F2AB00005AAA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B386D0829F2AB00005AAA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B62E60A29F6E03D00564763 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		5BD969C229F6FC4B000287DE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BD969C629F71B4E000287DE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5BD969C829F71C2B000287DE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		5BD969CB29F72BF9000287DE /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,21 @@
 		5B62E60929F6E02100564763 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5BD969CA29F72BD6000287DE /* Models */,
 				5B62E60A29F6E03D00564763 /* AuthServices.swift */,
 				5BD969C629F71B4E000287DE /* NetworkService.swift */,
 				5BD969C829F71C2B000287DE /* API.swift */,
+				5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5BD969CA29F72BD6000287DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BD969CB29F72BF9000287DE /* PhotoResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD969CC29F72BF9000287DE /* PhotoResponse.swift in Sources */,
 				5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */,
 				5BD969C329F6FC4B000287DE /* AlbumViewController.swift in Sources */,
 				5B386CFB29F2AAFF005AAA6C /* AppDelegate.swift in Sources */,
+				5BD070AA29F73007006C38CE /* NetworkDataFetcher.swift in Sources */,
 				5B386CFD29F2AAFF005AAA6C /* SceneDelegate.swift in Sources */,
 				5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */,
 				5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */,
