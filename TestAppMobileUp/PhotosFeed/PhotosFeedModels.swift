@@ -9,23 +9,29 @@
 import UIKit
 
 enum PhotosFeed {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-        case some
-      }
+
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case getPhoto
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentPhoto(photo: PhotoResponse)
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayPhoto(photoViewModel: PhotoViewModel)
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-        case some
-      }
+}
+struct PhotoViewModel {
+    struct Cell: PhotoCellViewModel {
+        var imageUrlString: String
     }
-    struct ViewModel {
-      enum ViewModelData {
-        case some
-      }
-    }
-  }
-  
+
+    let cells: [Cell]
 }

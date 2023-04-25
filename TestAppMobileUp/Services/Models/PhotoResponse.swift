@@ -12,10 +12,10 @@ struct PhotoResponseWrapped: Decodable {
 }
 
 struct PhotoResponse: Decodable {
-    var items: [AlbumInfo]
+    var items: [PhotoItem]
 }
 
-struct AlbumInfo: Decodable {
+struct PhotoItem: Decodable {
     let date: Double
     let sizes: [PhotoInfo]
 }

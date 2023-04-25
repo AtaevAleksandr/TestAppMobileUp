@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PhotoCellViewModel {
+    var imageUrlString: String { get }
+}
+
 class PhotosCollectionViewCell: UICollectionViewCell {
+
+    static let reuseId = "PhotosCollectionViewCell"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +28,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     //MARK: - Clousers
     lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .systemMint
+        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.borderWidth = 0.5
+        image.image = UIImage(systemName: "circle.dashed")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -33,7 +41,11 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+
+    func set(viewModel: PhotoCellViewModel) {
+        imageView.image = UIImage(systemName: "photo")
     }
 }

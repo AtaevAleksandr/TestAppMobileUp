@@ -69,8 +69,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     }
 
     func authServiceSighIn() {
-        let albumVC = AlbumViewController()
-        let navVC = UINavigationController(rootViewController: albumVC)
+        let photosVC = PhotosFeedViewController()
+        let navVC = UINavigationController(rootViewController: photosVC)
         window?.rootViewController = navVC
     }
 
