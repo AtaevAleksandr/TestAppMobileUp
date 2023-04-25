@@ -78,7 +78,7 @@ class AlbumViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
         layout.minimumLineSpacing = 3
         layout.minimumInteritemSpacing = 3
-        layout.itemSize = CGSize(width: 192, height: 186)
+        layout.estimatedItemSize = .zero
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: Cell.photosCollectionCell)
@@ -101,14 +101,18 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         30
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 192, height: 186)
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.photosCollectionCell, for: indexPath) as! PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.photosCollectionCell, for: indexPath) as! PhotosCollectionViewCell
         fetcher.getResponse { (response) in
             guard let response = response else { return }
             for item in response.items {
                 self.photos = item.sizes
-                for x in 0..<self.photos.count {
-                    let photo = self.photos[x]
+                for i in 0..<self.photos.count {
+                    let photo = self.photos[i]
                     if photo.type == "z" {
                         let urlString = photo.url
                         self.photoLinks.append(urlString)
@@ -118,12 +122,12 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 let dateTitle = self.dateFormatter.string(from: date)
                 self.photoDates.append(dateTitle)
             }
-            item.imageView.downloaded(from: self.photoLinks[indexPath.item])
+            cell.imageView.downloaded(from: self.photoLinks[indexPath.row])
         }
-        return item
+        return cell
     }
 
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        collectionView.deselectItem(at: indexPath, animated: true)
 //        delegate?.didChoosePhoto(urlString: photoLinks[indexPath.row], date: photoDates[indexPath.row])
 //        let photoVC = PhotoViewController()
@@ -131,7 +135,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
 //        photoVC.photoImageDate = photoDates[indexPath.row]
 //        photoVC.dateFormatter = dateFormatter
 //        navigationController?.pushViewController(photoVC, animated: true)
-//    }
+    }
 }
 
 extension UIImageView {
