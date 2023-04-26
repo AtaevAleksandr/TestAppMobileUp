@@ -19,6 +19,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
     var router: (NSObjectProtocol & PhotosFeedRoutingLogic)?
 
     private var photoViewModel = PhotoViewModel.init(cells: [])
+    private var dateFormarter: DateFormatter!
 
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,8 +48,6 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
         router.viewController     = viewController
     }
 
-    // MARK: - Routing
-
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +67,8 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
         appearance.backgroundColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.isNavigationBarHidden = false
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,7 +81,6 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
         navigationItem.title = "MobileUp Gallery"
 
         let navigationRightButton = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(exitVK))
-        navigationRightButton.tintColor = .black
         self.navigationItem.rightBarButtonItem = navigationRightButton
     }
 
@@ -125,14 +125,9 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select row")
         collectionView.deselectItem(at: indexPath, animated: false)
-        interactor?.makeRequest(request: .getPhoto)
-        //        delegate?.didChoosePhoto(urlString: photoLinks[indexPath.row], date: photoDates[indexPath.row])
-        //        let photoVC = PhotoViewController()
-        //        photoVC.photoImageURL = photoLinks[indexPath.row]
-        //        photoVC.photoImageDate = photoDates[indexPath.row]
-        //        photoVC.dateFormatter = dateFormatter
-        //        navigationController?.pushViewController(photoVC, animated: true)
+//        interactor?.makeRequest(request: .getPhoto)
+        let vc = PhotosFullScreenViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

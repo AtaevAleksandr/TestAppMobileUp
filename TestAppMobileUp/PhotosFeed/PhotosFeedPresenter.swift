@@ -15,14 +15,6 @@ protocol PhotosFeedPresentationLogic {
 class PhotosFeedPresenter: PhotosFeedPresentationLogic {
     weak var viewController: PhotosFeedDisplayLogic?
 
-
-    let dateFormatter: DateFormatter = {
-        let dt = DateFormatter()
-        dt.locale = Locale(identifier: "ru_RU")
-        dt.dateFormat = "d MMM 'в' HH:mm "
-        return dt
-    }()
-
     func presentData(response: PhotosFeed.Model.Response.ResponseType) {
 
         switch response {

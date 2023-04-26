@@ -39,8 +39,6 @@ class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegat
             switch state {
             case .initialized:
                 VKSdk.authorize(scope)
-            case .webview:
-                print("webview")
             case .authorized:
                 delegate?.authServiceSighIn()
             default:
