@@ -12,6 +12,21 @@
 		5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B386CFE29F2AAFF005AAA6C /* AuthorizationViewController.swift */; };
 		5B386D0429F2AB00005AAA6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0329F2AB00005AAA6C /* Assets.xcassets */; };
 		5B386D0729F2AB00005AAA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */; };
+		5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62E60A29F6E03D00564763 /* AuthServices.swift */; };
+		5BD070AA29F73007006C38CE /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */; };
+		5BD070B329F7F4FC006C38CE /* PhotosFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070AC29F7F4FC006C38CE /* PhotosFeedPresenter.swift */; };
+		5BD070B429F7F4FC006C38CE /* PhotosFeedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070AD29F7F4FC006C38CE /* PhotosFeedWorker.swift */; };
+		5BD070B529F7F4FC006C38CE /* PhotosFeedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070AE29F7F4FC006C38CE /* PhotosFeedRouter.swift */; };
+		5BD070B629F7F4FC006C38CE /* PhotosFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070AF29F7F4FC006C38CE /* PhotosFeedModels.swift */; };
+		5BD070B729F7F4FC006C38CE /* PhotosFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070B029F7F4FC006C38CE /* PhotosFeedViewController.swift */; };
+		5BD070B829F7F4FC006C38CE /* PhotosFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070B129F7F4FC006C38CE /* PhotosFeedInteractor.swift */; };
+		5BD070BD29F874E7006C38CE /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070BC29F874E7006C38CE /* WebImageView.swift */; };
+		5BD070BF29F8B3D0006C38CE /* PhotosFullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD070BE29F8B3D0006C38CE /* PhotosFullScreenViewController.swift */; };
+		5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5BD969BF29F6E582000287DE /* vk-ios-sdk */; };
+		5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */; };
+		5BD969C729F71B4E000287DE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C629F71B4E000287DE /* NetworkService.swift */; };
+		5BD969C929F71C2B000287DE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969C829F71C2B000287DE /* API.swift */; };
+		5BD969CC29F72BF9000287DE /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD969CB29F72BF9000287DE /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +37,20 @@
 		5B386D0329F2AB00005AAA6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B386D0629F2AB00005AAA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B386D0829F2AB00005AAA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B62E60A29F6E03D00564763 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		5BD070AC29F7F4FC006C38CE /* PhotosFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedPresenter.swift; sourceTree = "<group>"; };
+		5BD070AD29F7F4FC006C38CE /* PhotosFeedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedWorker.swift; sourceTree = "<group>"; };
+		5BD070AE29F7F4FC006C38CE /* PhotosFeedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedRouter.swift; sourceTree = "<group>"; };
+		5BD070AF29F7F4FC006C38CE /* PhotosFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedModels.swift; sourceTree = "<group>"; };
+		5BD070B029F7F4FC006C38CE /* PhotosFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedViewController.swift; sourceTree = "<group>"; };
+		5BD070B129F7F4FC006C38CE /* PhotosFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFeedInteractor.swift; sourceTree = "<group>"; };
+		5BD070BC29F874E7006C38CE /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		5BD070BE29F8B3D0006C38CE /* PhotosFullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFullScreenViewController.swift; sourceTree = "<group>"; };
+		5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		5BD969C629F71B4E000287DE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5BD969C829F71C2B000287DE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		5BD969CB29F72BF9000287DE /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD969C029F6E582000287DE /* vk-ios-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +84,11 @@
 		5B386CF929F2AAFF005AAA6C /* TestAppMobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				5BD070BB29F874A7006C38CE /* Helpers */,
+				5B62E60929F6E02100564763 /* Services */,
 				5B386D0E29F2ABDA005AAA6C /* App */,
-				5B386D0F29F2ABF0005AAA6C /* Controller */,
+				5BD070AB29F7F446006C38CE /* PhotosFeed */,
+				5B386D0F29F2ABF0005AAA6C /* Auth */,
 				5B386D0329F2AB00005AAA6C /* Assets.xcassets */,
 				5B386D0529F2AB00005AAA6C /* LaunchScreen.storyboard */,
 				5B386D0829F2AB00005AAA6C /* Info.plist */,
@@ -72,12 +105,63 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		5B386D0F29F2ABF0005AAA6C /* Controller */ = {
+		5B386D0F29F2ABF0005AAA6C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				5B386CFE29F2AAFF005AAA6C /* AuthorizationViewController.swift */,
 			);
-			path = Controller;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5B62E60929F6E02100564763 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BD969CA29F72BD6000287DE /* Models */,
+				5BD969C829F71C2B000287DE /* API.swift */,
+				5B62E60A29F6E03D00564763 /* AuthServices.swift */,
+				5BD969C629F71B4E000287DE /* NetworkService.swift */,
+				5BD070A929F73007006C38CE /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5BD070AB29F7F446006C38CE /* PhotosFeed */ = {
+			isa = PBXGroup;
+			children = (
+				5BD070BA29F83F4D006C38CE /* Cell */,
+				5BD070B029F7F4FC006C38CE /* PhotosFeedViewController.swift */,
+				5BD070BE29F8B3D0006C38CE /* PhotosFullScreenViewController.swift */,
+				5BD070B129F7F4FC006C38CE /* PhotosFeedInteractor.swift */,
+				5BD070AC29F7F4FC006C38CE /* PhotosFeedPresenter.swift */,
+				5BD070AF29F7F4FC006C38CE /* PhotosFeedModels.swift */,
+				5BD070AD29F7F4FC006C38CE /* PhotosFeedWorker.swift */,
+				5BD070AE29F7F4FC006C38CE /* PhotosFeedRouter.swift */,
+			);
+			path = PhotosFeed;
+			sourceTree = "<group>";
+		};
+		5BD070BA29F83F4D006C38CE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5BD969C429F71156000287DE /* PhotosCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5BD070BB29F874A7006C38CE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5BD070BC29F874E7006C38CE /* WebImageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5BD969CA29F72BD6000287DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BD969CB29F72BF9000287DE /* Album.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +180,9 @@
 			dependencies = (
 			);
 			name = TestAppMobileUp;
+			packageProductDependencies = (
+				5BD969BF29F6E582000287DE /* vk-ios-sdk */,
+			);
 			productName = TestAppMobileUp;
 			productReference = 5B386CF729F2AAFF005AAA6C /* TestAppMobileUp.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 5B386CEE29F2AAFF005AAA6C;
+			packageReferences = (
+				5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */,
+			);
 			productRefGroup = 5B386CF829F2AAFF005AAA6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,9 +240,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD070B529F7F4FC006C38CE /* PhotosFeedRouter.swift in Sources */,
+				5BD070BD29F874E7006C38CE /* WebImageView.swift in Sources */,
+				5BD070B829F7F4FC006C38CE /* PhotosFeedInteractor.swift in Sources */,
+				5BD969CC29F72BF9000287DE /* Album.swift in Sources */,
 				5B386CFF29F2AAFF005AAA6C /* AuthorizationViewController.swift in Sources */,
+				5BD070B329F7F4FC006C38CE /* PhotosFeedPresenter.swift in Sources */,
 				5B386CFB29F2AAFF005AAA6C /* AppDelegate.swift in Sources */,
+				5BD070B729F7F4FC006C38CE /* PhotosFeedViewController.swift in Sources */,
+				5BD070AA29F73007006C38CE /* NetworkDataFetcher.swift in Sources */,
 				5B386CFD29F2AAFF005AAA6C /* SceneDelegate.swift in Sources */,
+				5BD070B629F7F4FC006C38CE /* PhotosFeedModels.swift in Sources */,
+				5B62E60B29F6E03D00564763 /* AuthServices.swift in Sources */,
+				5BD070BF29F8B3D0006C38CE /* PhotosFullScreenViewController.swift in Sources */,
+				5BD070B429F7F4FC006C38CE /* PhotosFeedWorker.swift in Sources */,
+				5BD969C529F71156000287DE /* PhotosCollectionViewCell.swift in Sources */,
+				5BD969C929F71C2B000287DE /* API.swift in Sources */,
+				5BD969C729F71B4E000287DE /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +472,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/abesmon/vk-ios-sdk";
+			requirement = {
+				branch = "spm-support";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BD969BF29F6E582000287DE /* vk-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BD969BE29F6E582000287DE /* XCRemoteSwiftPackageReference "vk-ios-sdk" */;
+			productName = "vk-ios-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B386CEF29F2AAFF005AAA6C /* Project object */;
 }
