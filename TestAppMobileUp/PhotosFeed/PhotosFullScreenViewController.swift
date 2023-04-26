@@ -20,7 +20,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
         createNavBarItems()
         view.addSubview(photosFullScreen)
         setConstraints()
@@ -29,11 +29,11 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = UIColor(named: "backgroundColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.isNavigationBarHidden = false
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor(named: "otherColor")
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,6 +47,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         image.contentMode = .scaleToFill
         image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
+        image.backgroundColor = UIColor(named: "backgroundColor")
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 0.5
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +91,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     func showAlert() {
-        let alert = UIAlertController(title: "Успех", message: "Вы сохранили фото.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Success!", message: "You have saved the photo.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
