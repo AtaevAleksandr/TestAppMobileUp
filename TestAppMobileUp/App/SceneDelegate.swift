@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     //MARK: - AuthServiceDelegate
     func authServiceShouldShow(viewController: UIViewController) {
-        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+        window?.rootViewController?.present(viewController, animated: true)
     }
 
     func authServiceSighIn() {

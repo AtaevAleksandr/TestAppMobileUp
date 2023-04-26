@@ -37,7 +37,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         let image = WebImageView()
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 0.5
-        image.image = UIImage(systemName: "circle.dashed")
+        image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
+        image.tintColor = .systemGray
         image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
