@@ -6,20 +6,20 @@
 //
 
 import UIKit
-import WebKit
 
-final class AuthorizationViewController: UIViewController, WKNavigationDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        [nameLabel, authoButton].forEach { view.addSubview($0)}
-        setConstraints()
-    }
+final class AuthorizationViewController: UIViewController {
 
     //MARK: - Properties
-    var webView: WKWebView!
-
+    private var authService: AuthService!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        authService = SceneDelegate.shared().authService
+        view.backgroundColor = .white
+        [nameLabel, authButton].forEach { view.addSubview($0) }
+        setConstraints()
+    }
+    
     //MARK: - Clousers
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -29,8 +29,8 @@ final class AuthorizationViewController: UIViewController, WKNavigationDelegate 
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    private lazy var authoButton: UIButton = {
+    
+    private lazy var authButton: UIButton = {
         let button = UIButton()
         button.configuration = .filled()
         button.setTitle("Вход через VK", for: .normal)
@@ -40,23 +40,23 @@ final class AuthorizationViewController: UIViewController, WKNavigationDelegate 
         button.addTarget(self, action: #selector(tapToAuthorization), for: .touchUpInside)
         return button
     }()
-
-
+    
     //MARK: - Methods
     private func setConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 82),
             nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             nameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -124),
-
-            authoButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            authoButton.heightAnchor.constraint(equalToConstant: 50),
-            authoButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            authoButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            authButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            authButton.heightAnchor.constraint(equalToConstant: 50),
+            authButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            authButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
         ])
     }
-
+    
     @objc private func tapToAuthorization() {
-        nameLabel.text = "Hello"
+        authService.wakeUpSession()
     }
 }
