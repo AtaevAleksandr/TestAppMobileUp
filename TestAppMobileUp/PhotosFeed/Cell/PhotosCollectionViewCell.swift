@@ -8,7 +8,13 @@
 import UIKit
 
 protocol PhotoCellViewModel {
-    var imageUrlString: String { get }
+    var photoAttachment: PhotoAlbumViewModel? { get }
+}
+
+protocol PhotoAlbumViewModel {
+    var photoUrlString: String? { get }
+    var height: Int { get }
+    var width: Int { get }
 }
 
 class PhotosCollectionViewCell: UICollectionViewCell {
@@ -31,6 +37,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 0.5
         image.image = UIImage(systemName: "circle.dashed")
+        image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -46,6 +53,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
 
     func set(viewModel: PhotoCellViewModel) {
-        imageView.set(imageURL: viewModel.imageUrlString)
+        if let photoAttachment = viewModel.photoAttachment {
+            imageView.set(imageURL: photoAttachment.photoUrlString)
+        }
     }
 }

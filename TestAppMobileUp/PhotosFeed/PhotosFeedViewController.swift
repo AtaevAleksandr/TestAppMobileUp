@@ -121,24 +121,6 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.reuseId, for: indexPath) as! PhotosCollectionViewCell
         let cellViewModel = photoViewModel.cells[indexPath.item]
         cell.set(viewModel: cellViewModel)
-        
-//        fetcher.getResponse { (response) in
-//            guard let response = response else { return }
-//            for item in response.items {
-//                self.photos = item.sizes
-//                for i in 0..<self.photos.count {
-//                    let photo = self.photos[i]
-//                    if photo.type == "z" {
-//                        let urlString = photo.url
-//                        self.photoLinks.append(urlString)
-//                    }
-//                }
-//                let date = Date(timeIntervalSince1970: item.date)
-//                let dateTitle = self.dateFormatter.string(from: date)
-//                self.photoDates.append(dateTitle)
-//            }
-//            cell.imageView.downloaded(from: self.photoLinks[indexPath.row])
-//        }
         return cell
     }
 

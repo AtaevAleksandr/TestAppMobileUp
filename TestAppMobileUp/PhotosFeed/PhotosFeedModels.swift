@@ -18,7 +18,7 @@ enum PhotosFeed {
         }
         struct Response {
             enum ResponseType {
-                case presentPhoto(photo: PhotoResponse)
+                case presentPhoto(photo: Album)
             }
         }
         struct ViewModel {
@@ -30,7 +30,13 @@ enum PhotosFeed {
 }
 struct PhotoViewModel {
     struct Cell: PhotoCellViewModel {
-        var imageUrlString: String
+        var photoAttachment: PhotoAlbumViewModel?
+    }
+
+    struct PhotoCellPhotoAlbum: PhotoAlbumViewModel {
+        var photoUrlString: String?
+        var height: Int
+        var width: Int
     }
 
     let cells: [Cell]

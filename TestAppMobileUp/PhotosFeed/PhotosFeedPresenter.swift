@@ -15,9 +15,6 @@ protocol PhotosFeedPresentationLogic {
 class PhotosFeedPresenter: PhotosFeedPresentationLogic {
     weak var viewController: PhotosFeedDisplayLogic?
 
-//    var photos = [PhotoInfo]()
-//    var photoLinks = [String]()
-//    var photoDates = [String]()
 
     let dateFormatter: DateFormatter = {
         let dt = DateFormatter()
@@ -36,23 +33,16 @@ class PhotosFeedPresenter: PhotosFeedPresentationLogic {
             let photoViewModel = PhotoViewModel.init(cells: cells)
             viewController?.displayData(viewModel: .displayPhoto(photoViewModel: photoViewModel))
         }
-
     }
 
-    private func cellViewModel(from photoItem: PhotoItem) -> PhotoViewModel.Cell {
+    private func cellViewModel(from albumItem: AlbumInfo) -> PhotoViewModel.Cell {
 
-//        self.photos = photoItem.sizes
-//        for i in 0..<self.photos.count {
-//            let photo = self.photos[i]
-//            if photo.type == "z" {
-//                let urlString = photo.url
-//                self.photoLinks.append(urlString)
-//            }
-//        }
-        if photoItem.sizes[0].type == "z" {
-            let urlString = photoItem.sizes[0].url
-        }
-        return PhotoViewModel.Cell.init(imageUrlString: photoItem.sizes[0].url)
+        let photoAttachment = self.photoAlbum(photoItem: albumItem)
+
+        return PhotoViewModel.Cell.init(photoAttachment: photoAttachment)
     }
 
+    private func photoAlbum(photoItem: AlbumInfo) -> PhotoViewModel.PhotoCellPhotoAlbum? {
+        return PhotoViewModel.PhotoCellPhotoAlbum.init(photoUrlString: photoItem.srcBIG, height: photoItem.height, width: photoItem.width)
+    }
 }

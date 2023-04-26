@@ -26,7 +26,6 @@ class PhotosFeedInteractor: PhotosFeedBusinessLogic {
         switch request {
         case .getPhoto:
             fetcher.getResponse { [weak self] (feedResponse) in
-
                 guard let feedResponse = feedResponse else { return }
                 self?.presenter?.presentData(response: .presentPhoto(photo: feedResponse))
             }
