@@ -50,7 +50,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
         setup()
         view.addSubview(photosCollectionView)
         createNavBarItems()
@@ -63,10 +63,10 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = UIColor(named: "backgroundColor")
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor(named: "otherColor")
         navigationController?.isNavigationBarHidden = false
     }
 

@@ -15,7 +15,7 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         authService = SceneDelegate.shared().authService
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
         [nameLabel, authButton].forEach { view.addSubview($0) }
         setConstraints()
     }
