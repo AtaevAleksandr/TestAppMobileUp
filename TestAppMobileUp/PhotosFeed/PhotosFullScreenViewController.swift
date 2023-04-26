@@ -9,22 +9,11 @@ import UIKit
 
 class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
-
-    var photoImageURL: String?
-    var photoImageDate: String?
-    var photos = [PhotoSize]()
-    var photoLinks = [String]()
-    var photoDates = [String]()
-    var dateFormatter: DateFormatter?
-
-    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         createNavBarItems()
         view.addSubview(photosFullScreen)
-        photosFullScreen.downloaded(from: photoImageURL ?? "")
         setConstraints()
     }
 
@@ -38,14 +27,17 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         navigationController?.navigationBar.tintColor = .black
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     //MARK: - Clouser
-    lazy private var photosFullScreen: UIImageView = {
-        let image = UIImageView()
+    lazy var photosFullScreen: WebImageView = {
+        let image = WebImageView()
         image.contentMode = .scaleToFill
         image.image = UIImage(systemName: "circle.dashed")
         image.layer.borderColor = UIColor.black.cgColor
@@ -56,12 +48,11 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
 
     //MARK: - Methods
     private func createNavBarItems() {
-        navigationItem.title = photoImageDate
 
         let navigationRightButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(saveImage))
         self.navigationItem.rightBarButtonItem = navigationRightButton
 
-        let navigationBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(back))
+        let navigationBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(goBack))
         self.navigationItem.setLeftBarButton(navigationBackButton, animated: true)
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
@@ -73,74 +64,18 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         ])
     }
 
-    @objc func saveImage(sender: UIBarButtonItem) {
-        printContent("Save")
-    }
-
-    @objc func back(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
-}
-
-extension PhotosFullScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        30
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosFullScreenCollectionViewCell.reuseId, for: indexPath) as! PhotosFullScreenCollectionViewCell
-
-        fetcher.getResponse { (response) in
-            guard let response = response else { return }
-            for item in response.items {
-                self.photos = item.sizes
-                for x in 0..<self.photos.count {
-                    let photo = self.photos[x]
-                    if photo.type == "z" {
-                        let urlString = photo.url
-                        self.photoLinks.append(urlString)
-                    }
-                }
-                let date = Date(timeIntervalSince1970: item.date)
-                let dateTitle = self.dateFormatter!.string(from: date)
-                self.photoDates.append(dateTitle)
-            }
-            cell.photosFullScreen.downloaded(from: self.photoLinks[indexPath.row])
+    func set(viewModel: PhotoCellViewModel) {
+        if let photoAttachment = viewModel.photoAttachment {
+            photosFullScreen.set(imageURL: photoAttachment.photoUrlString)
         }
-        return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let layout = collectionViewLayout as? UICollectionViewFlowLayout
-
-        layout?.scrollDirection = .horizontal
-        layout!.minimumInteritemSpacing = 2.0
-        layout!.minimumLineSpacing = 0.0
-
-        let sideSize: CGFloat = 56
-        return CGSize(width: sideSize, height: sideSize)
+    @objc func saveImage(sender: UIBarButtonItem) {
+        print("Save")
     }
-}
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFill) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-            else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFill) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
+    @objc func goBack(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
 }
 

@@ -35,6 +35,6 @@ class PhotosFeedPresenter: PhotosFeedPresentationLogic {
     }
 
     private func photoAlbum(photoItem: AlbumInfo) -> PhotoViewModel.PhotoCellPhotoAlbum? {
-        return PhotoViewModel.PhotoCellPhotoAlbum.init(photoUrlString: photoItem.srcBIG, height: photoItem.height, width: photoItem.width)
+        return PhotoViewModel.PhotoCellPhotoAlbum.init(photoUrlString: photoItem.srcBIG, height: photoItem.height, width: photoItem.width, date: photoItem.date)
     }
 }

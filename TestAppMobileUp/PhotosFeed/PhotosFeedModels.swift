@@ -37,6 +37,7 @@ struct PhotoViewModel {
         var photoUrlString: String?
         var height: Int
         var width: Int
+        var date: Double
     }
 
     let cells: [Cell]

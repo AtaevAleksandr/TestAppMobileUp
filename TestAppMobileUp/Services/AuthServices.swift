@@ -7,7 +7,6 @@
 
 import Foundation
 import vk_ios_sdk
-import WebKit
 
 protocol AuthServiceDelegate: AnyObject {
     func authServiceShouldShow(viewController: UIViewController)
@@ -15,7 +14,7 @@ protocol AuthServiceDelegate: AnyObject {
     func authServiceSighInDidFail()
 }
 
-class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate, WKNavigationDelegate {
+class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
 
     private let appId = "51625050"
     private let vkSdk: VKSdk

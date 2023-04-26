@@ -18,8 +18,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
     var interactor: PhotosFeedBusinessLogic?
     var router: (NSObjectProtocol & PhotosFeedRoutingLogic)?
 
-    private var photoViewModel = PhotoViewModel.init(cells: [])
-    private var dateFormarter: DateFormatter!
+    var photoViewModel = PhotoViewModel.init(cells: [])
 
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -59,6 +58,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
         photosCollectionView.dataSource = self
         setConstraints()
         interactor?.makeRequest(request: .getPhoto)
+        photosCollectionView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +114,7 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 193, height: 186)
+        return CGSize(width: (UIScreen.main.bounds.width - 6) / 2, height: 186)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -126,8 +126,14 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-//        interactor?.makeRequest(request: .getPhoto)
+        let selectionCellViewModel = photoViewModel.cells[indexPath.item]
+        let date = Date(timeIntervalSince1970: TimeInterval(selectionCellViewModel.photoAttachment?.date ?? 0.0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy 'в' HH:mm"
+        let dateString = dateFormatter.string(from: date)
         let vc = PhotosFullScreenViewController()
+        vc.photosFullScreen.set(imageURL: selectionCellViewModel.photoAttachment?.photoUrlString)
+        vc.navigationItem.title = dateString
         navigationController?.pushViewController(vc, animated: true)
     }
 }

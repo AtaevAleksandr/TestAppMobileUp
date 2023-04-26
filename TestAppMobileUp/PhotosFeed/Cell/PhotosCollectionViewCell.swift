@@ -15,6 +15,7 @@ protocol PhotoAlbumViewModel {
     var photoUrlString: String? { get }
     var height: Int { get }
     var width: Int { get }
+    var date: Double { get }
 }
 
 class PhotosCollectionViewCell: UICollectionViewCell {
