@@ -7,6 +7,15 @@
 
 import UIKit
 
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    }
+}
+
 class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
@@ -31,10 +40,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         super.viewDidDisappear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
+    
     //MARK: - Clouser
     lazy var photosFullScreen: WebImageView = {
         let image = WebImageView()
@@ -60,7 +66,8 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     private func setConstraints() {
         NSLayoutConstraint.activate([
             photosFullScreen.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            photosFullScreen.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            photosFullScreen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            photosFullScreen.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
         ])
     }
 
@@ -71,7 +78,20 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     }
 
     @objc func saveImage(sender: UIBarButtonItem) {
-        print("Save")
+        let items: [Any] = [UIImageView()]
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+
+        guard let image = photosFullScreen.image else { return }
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: image)
+        showAlert()
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
+    func showAlert() {
+        let alert = UIAlertController(title: "Успех", message: "Вы сохранили фото.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     @objc func goBack(sender: UIBarButtonItem) {

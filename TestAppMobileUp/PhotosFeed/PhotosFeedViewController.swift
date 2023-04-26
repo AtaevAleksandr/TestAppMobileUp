@@ -58,7 +58,6 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
         photosCollectionView.dataSource = self
         setConstraints()
         interactor?.makeRequest(request: .getPhoto)
-        photosCollectionView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
