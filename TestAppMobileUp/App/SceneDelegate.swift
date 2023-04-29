@@ -65,7 +65,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
 
     //MARK: - AuthServiceDelegate
     func authServiceShouldShow(viewController: UIViewController) {
-        window?.rootViewController?.present(viewController, animated: true)
+        let navVC = UINavigationController(rootViewController: viewController)
+        navVC.modalPresentationStyle = .automatic
+        window?.rootViewController?.present(navVC, animated: true)
     }
 
     func authServiceSighIn() {
@@ -77,7 +79,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AuthServiceDelegate {
     func authServiceSighInDidFail() {
         print(#function)
     }
-
-
 }
 
