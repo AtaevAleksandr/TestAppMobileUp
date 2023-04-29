@@ -36,6 +36,8 @@ import VKSdkFramework
    - Добавление кнопки "Сохранить фото" и ее настройка ~ 1 час.
 6. Создание ветки feature/DarkTheme ~ 2 мин.
  - Добавление и настройка Тёмной темы для приложения ~ 20 мин.
+7. Создание ветки feature/ModalPresent ~ 2 мин.
+ - Добавление и настройка модального вида окна авторизации ~ 20 мин.
 
 
-![Logo](https://sun9-53.userapi.com/impf/c639529/v639529667/a145/NaOOu3n_TZ0.jpg?size=320x320&quality=96&sign=05b2aa4a0e496dcc5c050afcd848123a&type=album)
+![Logo](https://sun9-42.userapi.com/impf/c851520/v851520486/666b2/RKkvSsJ_DMw.jpg?size=801x801&quality=96&sign=52f883c8c27171549bf2208ea35dd6b5&type=album)
