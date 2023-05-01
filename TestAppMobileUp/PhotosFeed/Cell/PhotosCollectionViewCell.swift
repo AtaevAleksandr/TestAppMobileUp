@@ -35,11 +35,12 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     //MARK: - Clousers
     lazy var imageView: WebImageView = {
         let image = WebImageView()
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.borderWidth = 0.5
+//        image.layer.borderColor = UIColor.black.cgColor
+//        image.layer.borderWidth = 0.5
         image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
-        image.contentMode = .scaleToFill
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -50,7 +51,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 
