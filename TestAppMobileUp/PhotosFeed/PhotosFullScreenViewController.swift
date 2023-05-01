@@ -44,12 +44,13 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     //MARK: - Clouser
     lazy var photosFullScreen: WebImageView = {
         let image = WebImageView()
-        image.contentMode = .scaleToFill
+        image.contentMode = .scaleAspectFill
         image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
         image.backgroundColor = UIColor(named: "backgroundColor")
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.borderWidth = 0.5
+        image.clipsToBounds = true
+//        image.layer.borderColor = UIColor.black.cgColor
+//        image.layer.borderWidth = 0.5
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -69,7 +70,9 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         NSLayoutConstraint.activate([
             photosFullScreen.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             photosFullScreen.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            photosFullScreen.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            photosFullScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            photosFullScreen.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            photosFullScreen.heightAnchor.constraint(equalToConstant: 375)
         ])
     }
 

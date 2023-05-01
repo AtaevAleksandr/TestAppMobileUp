@@ -23,8 +23,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        layout.minimumLineSpacing = 2
+        layout.minimumLineSpacing = 3
         layout.minimumInteritemSpacing = 2
         layout.estimatedItemSize = .zero
 
@@ -113,7 +112,7 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 6) / 2, height: 186)
+        return CGSize(width: (UIScreen.main.bounds.width - 2) / 2, height: 186)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
