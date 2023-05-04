@@ -21,6 +21,8 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     var interactor: PhotosFeedBusinessLogic?
     var router: (NSObjectProtocol & PhotosFeedRoutingLogic)?
     var photoViewModel = PhotoViewModel.init(cells: [])
+    var originalTransform: CGAffineTransform!
+    var lastLocation = CGPoint.zero
 
     // MARK: - Setup
     private func setup() {
@@ -46,6 +48,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         feedCollectionView.delegate = self
         setConstraints()
         interactor?.makeRequest(request: .getPhoto)
+        originalTransform = photosFullScreen.transform
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +75,9 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         image.backgroundColor = UIColor(named: "backgroundColor")
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.isUserInteractionEnabled = true
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(zoomPhoto))
+        image.addGestureRecognizer(pinchGesture)
         return image
     }()
 
@@ -142,6 +148,21 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
 
     @objc func goBack(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc func zoomPhoto(_ gesture: UIPinchGestureRecognizer) {
+        guard let view = gesture.view else { return }
+
+        if gesture.state == .began {
+            view.transform = originalTransform.scaledBy(x: gesture.scale, y: gesture.scale)
+        } else if gesture.state == .changed {
+            view.transform = view.transform.scaledBy(x: gesture.scale, y: gesture.scale)
+            gesture.scale = 1.0
+        } else if gesture.state == .ended || gesture.state == .cancelled {
+            UIView.animate(withDuration: 0.5) {
+                view.transform = self.originalTransform
+            }
+        }
     }
 }
 
