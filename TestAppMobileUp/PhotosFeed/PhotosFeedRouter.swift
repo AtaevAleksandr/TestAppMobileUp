@@ -9,13 +9,14 @@
 import UIKit
 
 protocol PhotosFeedRoutingLogic {
-
+    
 }
 
 class PhotosFeedRouter: NSObject, PhotosFeedRoutingLogic {
-
-  weak var viewController: PhotosFeedViewController?
-  
-  // MARK: Routing
-  
+    
+    weak var viewController: PhotosFeedViewController?
+    weak var vc: PhotosFullScreenViewController?
+    
+    // MARK: Routing
+    
 }
