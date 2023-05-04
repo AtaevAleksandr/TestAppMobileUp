@@ -29,6 +29,7 @@ class PhotosFeedViewController: UIViewController, PhotosFeedDisplayLogic {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: PhotosCollectionViewCell.reuseId)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -123,7 +124,6 @@ extension PhotosFeedViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: false)
         let selectionCellViewModel = photoViewModel.cells[indexPath.item]
         let date = Date(timeIntervalSince1970: TimeInterval(selectionCellViewModel.photoAttachment?.date ?? 0.0))
         let dateFormatter = DateFormatter()

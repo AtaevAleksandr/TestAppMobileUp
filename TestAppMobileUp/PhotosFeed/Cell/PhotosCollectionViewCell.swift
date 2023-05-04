@@ -35,8 +35,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     //MARK: - Clousers
     lazy var imageView: WebImageView = {
         let image = WebImageView()
-//        image.layer.borderColor = UIColor.black.cgColor
-//        image.layer.borderWidth = 0.5
         image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
         image.contentMode = .scaleAspectFill
