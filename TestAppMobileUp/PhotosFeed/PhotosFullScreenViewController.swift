@@ -97,7 +97,7 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     //MARK: - Methods
     private func createNavBarItems() {
 
-        let navigationRightButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(saveImage))
+        let navigationRightButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareSheetToSaveImage))
         self.navigationItem.rightBarButtonItem = navigationRightButton
 
         let navigationBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(goBack))
@@ -129,14 +129,16 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
         }
     }
 
-    @objc func saveImage(sender: UIBarButtonItem) {
-        let items: [Any] = [UIImageView()]
-        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-
+    @objc func shareSheetToSaveImage(_ sender: UIBarButtonItem) {
         guard let image = photosFullScreen.image else { return }
-        let imageSaver = ImageSaver()
-        imageSaver.writeToPhotoAlbum(image: image)
-        showAlert()
+        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityVC.completionWithItemsHandler = { activityType, completed, returnedItems, error in
+            if completed && activityType == .saveToCameraRoll {
+                DispatchQueue.main.async {
+                    self.showAlert()
+                }
+            }
+        }
         self.present(activityVC, animated: true, completion: nil)
     }
 
