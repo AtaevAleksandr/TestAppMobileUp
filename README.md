@@ -43,5 +43,4 @@ import VKSdkFramework
 9. Создание ветки feature/ZoomPhoto ~ 2 мин.
  - Добавление и настройка увеличения главного фото двумя пальцами ~ 30 мин.
 
-
-![Logo](https://sun9-42.userapi.com/impf/c851520/v851520486/666b2/RKkvSsJ_DMw.jpg?size=801x801&quality=96&sign=52f883c8c27171549bf2208ea35dd6b5&type=album)
+<img src="https://sun9-42.userapi.com/impf/c851520/v851520486/666b2/RKkvSsJ_DMw.jpg?size=801x801&quality=96&sign=52f883c8c27171549bf2208ea35dd6b5&type=album" width="400" />
