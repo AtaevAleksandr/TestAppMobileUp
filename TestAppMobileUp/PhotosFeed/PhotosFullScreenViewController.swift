@@ -70,7 +70,6 @@ class PhotosFullScreenViewController: UIViewController, UIGestureRecognizerDeleg
     lazy var photosFullScreen: WebImageView = {
         let image = WebImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
         image.backgroundColor = UIColor(named: "backgroundColor")
         image.clipsToBounds = true

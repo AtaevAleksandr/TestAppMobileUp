@@ -21,10 +21,12 @@ protocol PhotoAlbumViewModel {
 class PhotosCollectionViewCell: UICollectionViewCell {
 
     static let reuseId = "PhotosCollectionViewCell"
+    var isSuccess: Bool!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
+        imageView.addSubview(activityIndicator)
         setConstraints()
     }
 
@@ -35,12 +37,19 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     //MARK: - Clousers
     lazy var imageView: WebImageView = {
         let image = WebImageView()
-        image.image = UIImage(systemName: "circle.dashed")?.withRenderingMode(.alwaysTemplate)
         image.tintColor = .systemGray
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
+        self.activityIndicator.startAnimating()
         return image
+    }()
+
+    public lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = UIColor(red: 74 / 255, green: 35 / 255, blue: 245 / 255, alpha: 1.0)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
     }()
 
     //MARK: - Methods
@@ -49,13 +58,20 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
     }
 
     func set(viewModel: PhotoCellViewModel) {
         if let photoAttachment = viewModel.photoAttachment {
-            imageView.set(imageURL: photoAttachment.photoUrlString)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.imageView.set(imageURL: photoAttachment.photoUrlString)
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            }
         }
     }
 }
